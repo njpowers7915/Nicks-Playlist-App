@@ -4,7 +4,7 @@ class AddButton extends Component {
   render() {
     return (
       <div className="add-button">
-        +
+        + ADD
       </div>
     );
   }

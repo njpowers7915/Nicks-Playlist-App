@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PlaylistComponent from './containers/PlaylistComponent';
+//import PlaylistComponent from './containers/PlaylistComponent';
 
 class PlaylistList extends Component {
   render() {

@@ -9,7 +9,7 @@ class PlaylistComponent extends Component {
       <div className="playlist-component">
         Name
         Description
-        <FindTracksForm />
+        <TrackSearchForm />
         <TrackList />
       </div>
     );
