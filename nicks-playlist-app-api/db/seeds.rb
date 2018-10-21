@@ -17,3 +17,8 @@ Track.create(name: 'Wild Out', artist: 'Waka Flocka')
 Playlist.create(name: 'Rap Playlist', user_id: 1, description: 'A rap playlist')
 Playlist.create(name: 'EDM', user_id: 1, description: 'An electronic playlist')
 Playlist.create(name: 'Great Playlist', user_id: 2, description: 'A bit of everything')
+
+playlists = Playlist.all
+playlists[0].tracks << Track.where(id: [3, 4])
+playlists[1].tracks << Track.where(id: [1, 2])
+playlists[2].tracks << Track.where(id: [1, 2, 3, 4])

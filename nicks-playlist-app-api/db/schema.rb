@@ -22,18 +22,18 @@ ActiveRecord::Schema.define(version: 2018_10_21_130915) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "playlists_tracks", force: :cascade do |t|
+    t.integer "playlist_id"
+    t.integer "track_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tracks", force: :cascade do |t|
     t.string "name"
     t.string "artist"
     t.string "spotify_id"
     t.string "spotify_uri"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tracks_playlists", force: :cascade do |t|
-    t.integer "track_id"
-    t.integer "playlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
