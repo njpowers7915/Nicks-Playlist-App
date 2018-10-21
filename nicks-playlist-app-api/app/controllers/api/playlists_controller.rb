@@ -4,7 +4,7 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     @playlists = Playlist.all
-    render json: { playlists: playlists }
+    render json: { playlists: @playlists }
   end
 
   def create

@@ -3,7 +3,9 @@ import playlistsReducer from './playlistsReducer';
 import tracksReducer from './tracksReducer';
 //import authReducer from './authReducer';
 
-export default combineReducers({
+const rootReducer = combineReducers({
   playlists: playlistsReducer,
   tracks: tracksReducer
 })
+
+export default rootReducer;
