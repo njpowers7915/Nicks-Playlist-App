@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, Redirect} from 'react-router-dom';
 
 import HomePage from './HomePage';
 import NavBar from './NavBar';
@@ -9,8 +10,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <HomePage />
+        <head>  
+          <Route exact path='/' render={() => <Redirect to="/playlists" />} />
+        </head>
+        <body>
+          <NavBar />
+          <Route path="/playlists" component={HomePage} />
+        </body>
       </div>
     );
   }
