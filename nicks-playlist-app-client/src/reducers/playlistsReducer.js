@@ -1,10 +1,10 @@
-function playlistsReducer(state = {loading: false, playlists: []}, action) {
+function playlistsReducer(state = [], action) {
   switch (action.type) {
-    case 'LOADING_PLAYLISTS':
-      return Object.assign({}, state, {loading: true});
+    //case 'LOADING_PLAYLISTS':
+    //  return Object.assign({}, state);
 
     case 'FETCH_PLAYLISTS':
-      return {loading: false, playlists: action.payload};
+      return action.playlists;
     /*
     case 'CREATE_PLAYLIST_SUCCESS':
       return state.concat(action.playlist);

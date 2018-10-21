@@ -10,13 +10,11 @@ const setPlaylists = playlists => {
 
 
 // ** Async Actions **
-export function fetchPlaylists() {
-  return function(dispatch){
-    dispatch({type: 'FETCH_PLAYLISTS'})
+export const fetchPlaylists = () => {
+  return dispatch => {
     return fetch(`${API_URL}/playlists`)
-      .then(response => {
-        return response.json()
-      }).then(playlists => dispatch(setPlaylists(playlists)))
+      .then(response => response.json())
+      .then(playlists => dispatch(setPlaylists(playlists.data)))
       .catch(error => console.log(error));
   }
 }
