@@ -10,13 +10,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <head>  
+        <div className="app-routes">
           <Route exact path='/' render={() => <Redirect to="/playlists" />} />
-        </head>
-        <body>
+        </div>
+        <div className="app-body">
           <NavBar />
           <Route path="/playlists" component={HomePage} />
-        </body>
+        </div>
       </div>
     );
   }

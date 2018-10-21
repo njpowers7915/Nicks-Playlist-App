@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { fetchPlaylists } from '../actions/playlistActions';
 //import PlaylistComponent from './containers/PlaylistComponent';
 
 class PlaylistList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      playlists: []
+    }
+  }
+
+  componentDidMount() {
+    debugger
+    this.props.fetchPlaylists()
+  }
+
   render() {
     return (
       <div className="playlist-list">
@@ -13,4 +26,10 @@ class PlaylistList extends Component {
   }
 }
 
-export default PlaylistList;
+const mapStateToProps = state => {
+  return {
+    playlists: state.playlists
+  }
+}
+
+export default connect(mapStateToProps, {fetchPlaylists})(PlaylistList);
