@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 
 import TrackComponent from './TrackComponent';
 
+const TrackList = ({tracks}) => {
+  const renderTracks = tracks.map(track =>
+    <li key={track.id}>
+      <TrackComponent track={track}/>
+    </li>
+  )
+
+  return (
+    <div>
+      {renderTracks}
+    </div>
+  )
+}
+
+export default TrackList
+/*
 class TrackList extends Component {
   render() {
     return (
@@ -14,3 +30,4 @@ class TrackList extends Component {
 }
 
 export default TrackList;
+*/
