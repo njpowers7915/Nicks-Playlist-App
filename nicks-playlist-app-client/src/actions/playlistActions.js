@@ -8,6 +8,13 @@ const setPlaylists = playlists => {
   }
 }
 
+const addPlaylist = playlist => {
+  return {
+    type: 'CREATE_PLAYLIST_SUCCESS',
+    playlist
+  }
+}
+
 // ** Async Actions **
 export const fetchPlaylists = () => {
   return dispatch => {
@@ -15,5 +22,23 @@ export const fetchPlaylists = () => {
       .then(response => response.json())
       .then(playlists => dispatch(setPlaylists(playlists.data)))
       .catch(error => console.log(error));
+  }
+}
+
+export const createPlaylist = playlist => {
+  return dispatch => {
+    return fetch(`${API_URL}/playlists`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ playlist: playlist })
+    })
+      .then(response => response.json())
+      .then(playlist => {
+        dispatch(addPlaylist(playlist))
+        dispatch(resetPlaylistForm())
+      })
+      .catch(error => console.log(error))
   }
 }
