@@ -9,7 +9,7 @@ const PlaylistComponent = ({ playlist }) =>
   <div>
     <p>Name: {playlist.attributes.name}</p>
     <p>Description: {playlist.attributes.description}</p>
-    <TrackSearchForm />
+    {/* <TrackSearchForm /> */}
     <TrackList tracks={playlist.attributes.tracks}/>
   </div>
 

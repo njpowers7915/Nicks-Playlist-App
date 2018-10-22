@@ -4,7 +4,7 @@ const initialState = {
   tracks: []
 }
 
-function playlistFormReducer(state = initialState, action) => {
+function playlistFormReducer(state = initialState, action) {
 
   switch(action.type) {
     case 'UPDATED_DATA':

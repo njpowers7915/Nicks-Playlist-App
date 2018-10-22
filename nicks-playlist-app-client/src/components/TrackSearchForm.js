@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {fetchTracks} from '../actions/trackActions';
-
+/*
 class TrackSearchForm extends Component {
 
   componentDidMount() {
     this.props.fetchTracks()
   }
 
-  function renderTracks() {
+  renderTracks = () => {
     return this.props.tracks.map(track =>
-      <option key={track.id} value=`${track.name} --- ${track.artist}`>
+      <option key={track.id} value={`${track.name} --- ${track.artist}`}>
     )
   }
 
   render() {
     return (
-      <div className="track-search-form">
+      <div>
         <h2>Search for Tracks</h2>
-        <datalist id="tracks">
-          {this.renderTracks()}
-        </datalist>
+          <datalist id="tracks">
+            {this.renderTracks}
+          </datalist>
       </div>
-    );
+    )
   }
 }
 
@@ -33,6 +33,10 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {fetchTracks})(TrackSearchForm);
+*/
+
+
+
 /*
   render() {
     const { match, playlists } = this.props;

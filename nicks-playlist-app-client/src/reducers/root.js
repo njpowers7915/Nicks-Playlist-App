@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
 import playlistsReducer from './playlistsReducer';
+import playlistFormReducer from './playlistFormReducer'
 import tracksReducer from './tracksReducer';
 //import authReducer from './authReducer';
 
 export default combineReducers({
   playlists: playlistsReducer,
   tracks: tracksReducer,
-  playlistFormData: plalylistFormReducer
+  playlistFormData: playlistFormReducer
 })
 
 /*
