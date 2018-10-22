@@ -8,10 +8,19 @@ class TrackSearchForm extends Component {
     this.props.fetchTracks()
   }
 
+  function renderTracks() {
+    return this.props.tracks.map(track =>
+      <option key={track.id} value=`${track.name} --- ${track.artist}`>
+    )
+  }
+
   render() {
     return (
       <div className="track-search-form">
-        <h2>Search for tracks</h2>
+        <h2>Search for Tracks</h2>
+        <datalist id="tracks">
+          {this.renderTracks()}
+        </datalist>
       </div>
     );
   }
