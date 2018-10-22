@@ -20,16 +20,3 @@ const mapStateToProps = (state, ownProps) => {
 */
 //export default connect(mapStateToProps)(PlaylistComponent)
 export default TrackComponent
-/*
-class TrackComponent extends Component {
-  render() {
-    return (
-      <div className="track-component">
-        Name -- Artist -- <AddButton /> OR <DeleteButton />
-      </div>
-    );
-  }
-}
-
-export default TrackComponent;
-*/

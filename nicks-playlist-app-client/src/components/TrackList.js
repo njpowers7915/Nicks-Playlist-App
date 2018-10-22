@@ -4,9 +4,9 @@ import TrackComponent from './TrackComponent';
 
 const TrackList = ({tracks}) => {
   const renderTracks = tracks.map(track =>
-    <li key={track.id}>
+    <div key={track.id}>
       <TrackComponent track={track}/>
-    </li>
+    </div>
   )
 
   return (

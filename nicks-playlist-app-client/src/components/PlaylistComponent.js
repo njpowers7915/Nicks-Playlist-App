@@ -16,7 +16,6 @@ const PlaylistComponent = ({ playlist }) =>
 const mapStateToProps = (state, ownProps) => {
 
   let playlist = state.playlists.find(playlist => playlist.id === ownProps.match.params.playlistId)
-  debugger
   if (playlist) {
     return { playlist }
   } else {

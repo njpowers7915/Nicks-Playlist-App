@@ -1,19 +1,19 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
 // ** Action Creators **
-const setPlaylists = playlists => {
+const setPlaylists = tracks => {
   return {
-    type: 'FETCH_PLAYLISTS',
-    playlists
+    type: 'FETCH_TRACKS',
+    tracks
   }
 }
 
 // ** Async Actions **
-export const fetchPlaylists = () => {
+export const fetchTracks = () => {
   return dispatch => {
-    return fetch(`${API_URL}/playlists`)
+    return fetch(`${API_URL}/tracks`)
       .then(response => response.json())
-      .then(playlists => dispatch(setPlaylists(playlists.data)))
+      .then(tracks => dispatch(setPlaylists(tracks.data)))
       .catch(error => console.log(error));
   }
 }
