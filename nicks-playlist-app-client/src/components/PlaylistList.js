@@ -4,16 +4,12 @@ import { connect } from 'react-redux';
 import { fetchPlaylists } from '../actions/playlistActions';
 
 class PlaylistList extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchPlaylists()
   }
 
   renderPlaylists() {
-    debugger
     return this.props.playlists.map(playlist =>
       <li key={playlist.id}>
         <Link to={`/playlists/${playlist.id}`}>{playlist.attributes.name}</Link>

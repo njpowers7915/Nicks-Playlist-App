@@ -21,6 +21,7 @@ class HomePage extends Component {
       <div className="home-page">
         <Route exact path={match.url} render={() =>
             <Link to="/playlists/new">Create a Playlist!</Link>} />
+        <br></br>
         <Switch>
           <Route exact path={match.url} component={PlaylistList} />
           <Route exact path={match.url + '/new'} component={NewPlaylistForm} />
