@@ -5,7 +5,8 @@ import tracksReducer from './tracksReducer';
 
 export default combineReducers({
   playlists: playlistsReducer,
-  tracks: tracksReducer
+  tracks: tracksReducer,
+  playlistFormData: plalylistFormReducer
 })
 
 /*
