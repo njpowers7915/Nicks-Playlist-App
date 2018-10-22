@@ -1,20 +1,40 @@
 import React, { Component } from 'react';
-import { setPlaylist } from '../actions/playlistActions'
+//import { setPlaylist } from '../actions/playlistActions'
 import { connect } from 'react-redux';
 
 import TrackList from './TrackList';
 import TrackSearchForm from './TrackSearchForm';
 
-class PlaylistComponent extends Component {
-  constructor(props) {
-    super(props)
-    debugger
-    this.state = {
-      playlist: null
-    }
-  }
+const PlaylistComponent = ({ playlist }) =>
+  <div>
+    <p>Name: {playlist.attributes.name}</p>
+    <p>Description: {playlist.attributes.description}</p>
+    <TrackSearchForm />
+    <TrackList tracks={playlist.attributes.tracks}/>
+  </div>
 
-  componentWillMount() {
+const mapStateToProps = (state, ownProps) => {
+
+  let playlist = state.playlists.find(playlist => playlist.id === ownProps.match.params.playlistId)
+  debugger
+  if (playlist) {
+    return { playlist }
+  } else {
+    return { playlist: {} }
+  }
+}
+
+export default connect(mapStateToProps)(PlaylistComponent)
+
+
+
+/*
+class PlaylistComponent extends Component {
+
+  componentDidMount() {
+    this.props.fetchPlaylist()
+  }
+/*
     const id = this.props.match.params.playlistId
     const API_URL = process.env.REACT_APP_API_URL
     return dispatch => {
@@ -24,6 +44,7 @@ class PlaylistComponent extends Component {
         .catch(error => console.log(error));
     }
   }
+
 
   renderPlaylist() {
     return(<div>
@@ -54,3 +75,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(PlaylistComponent);
+*/
