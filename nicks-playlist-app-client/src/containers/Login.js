@@ -1,27 +1,39 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { authenticate } form '../actions/authActions';
 
-class LoginForm extends Component {
-  constructor() {
-    super();
+class Login extends Component {
+  constructor(props) {
+    super(props);
+
     this.state = {
       username: '',
       password: ''
     }
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+  handleOnChange = (event) => {
+    const { name, value } = event.target;
     this.setState({
       [name]: value
     })
   }
 
+  handleOnLogin = (event) => {
+    event.preventDefault()
+    if (this.props.authenticate(this.state)) {
+      this.props.history.push('/playlists')
+    } else {
+      window.alert("An error occurred. Please try logging in again.")
+    }
+  }
+
   render() {
     return(
       <div className="loginForm">
-        <form onSubmit={(event) => this.props.handleLoginSubmit(event, this.state)} >
+        <h2>Log In</h2>
+        <form onSubmit={this.handleOnLogin} >
         <input type="text" name="username" placeholder="username"
           value={this.state.username} onChange={this.handleChange} />
         <input type="password" name="password" placeholder="password"
@@ -33,4 +45,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default Login = withRouter(connect(null, {authenticate})(Login))
