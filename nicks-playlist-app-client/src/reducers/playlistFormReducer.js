@@ -1,7 +1,8 @@
 const initialState = {
-  name: '',
-  description: '',
-  tracks: []
+  attributes: {
+    name: '',
+    description: ''
+  }
 }
 
 function playlistFormReducer(state = initialState, action) {

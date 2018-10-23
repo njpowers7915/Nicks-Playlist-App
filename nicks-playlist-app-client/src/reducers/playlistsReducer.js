@@ -12,6 +12,10 @@ function playlistsReducer(state = [], action) {
     //case 'FETCH_PLAYLIST':
     //  return action.playlist;
 
+
+    case 'ADD_PLAYLIST':
+      const playlist = Object.assign({}, action.playlist, { id: state.length + 1} )
+      return [...state, playlist]
     default:
       return state;
   }

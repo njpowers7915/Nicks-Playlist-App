@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { createPlaylist, updatePlaylistFormData } from '../actions/playlistActions'
-
+import { createNewPlaylist, updatePlaylistFormData } from '../actions/playlistActions'
+/*
 class NewPlaylistForm extends Component {
 
   handleOnChange = event => {
@@ -16,6 +16,7 @@ class NewPlaylistForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createPlaylist(this.props.playlistFormData)
+    this.props.history.push('/playlists')
   }
 
   render() {
@@ -59,9 +60,8 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { updatePlaylistFormData, createPlaylist })(NewPlaylistForm);
 
+*/
 
-
-/*
 class NewPlaylistForm extends Component {
   constructor(props) {
     super(props)
@@ -73,8 +73,8 @@ class NewPlaylistForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    const { createPlaylist, history } = this.props
-    createPlaylist(this.state)
+    const { createNewPlaylist, history } = this.props
+    createNewPlaylist(this.state)
     history.push('/playlists')
   }
 
@@ -98,5 +98,4 @@ class NewPlaylistForm extends Component {
   }
 }
 
-export default connect(null, { createPlaylist })(NewPlaylistForm);
-*/
+export default connect(null, { createNewPlaylist })(NewPlaylistForm);

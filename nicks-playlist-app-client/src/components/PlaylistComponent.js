@@ -7,10 +7,10 @@ import TrackSearchForm from './TrackSearchForm';
 
 const PlaylistComponent = ({ playlist }) =>
   <div>
-    <p>Name: {playlist.attributes.name}</p>
-    <p>Description: {playlist.attributes.description}</p>
+    <p>Name: {playlist.name}</p>
+    <p>Description: {playlist.description}</p>
     {/* <TrackSearchForm /> */}
-    <TrackList tracks={playlist.attributes.tracks}/>
+    <TrackList tracks={playlist.tracks}/>
   </div>
 
 const mapStateToProps = (state, ownProps) => {

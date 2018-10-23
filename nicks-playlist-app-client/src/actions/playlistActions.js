@@ -15,6 +15,13 @@ const addPlaylist = playlist => {
   }
 }
 
+export function createNewPlaylist(playlist) {
+  return {
+    type: 'ADD_PLAYLIST',
+    playlist
+  }
+}
+
 export const updatePlaylistFormData = playlistFormData => {
   return {
     type: 'UPDATED_DATA',
