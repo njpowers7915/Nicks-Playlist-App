@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 //import { setPlaylist } from '../actions/playlistActions'
 import { connect } from 'react-redux';
 
 import TrackList from './TrackList';
-import TrackSearchForm from './TrackSearchForm';
+//import TrackSearchForm from './TrackSearchForm';
 
 const PlaylistComponent = ({ playlist }) =>
   <div>
