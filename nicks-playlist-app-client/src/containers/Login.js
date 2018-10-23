@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { authenticate } form '../actions/authActions';
+import { authenticate } from '../actions/authActions';
 
 class Login extends Component {
   constructor(props) {

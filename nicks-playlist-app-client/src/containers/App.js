@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import {Route, Redirect, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import HomePage from './HomePage';
@@ -34,28 +34,28 @@ class App extends Component {
       <div className="App">
         <div className="nav-bar">
           <Route path="/"
-            render={() => {isAuthenticated}
+            render={() => isAuthenticated
             ? <NavBar />
             : null } />
         </div>
 
         <Route path="/playlists"
-          render={() => {isAuthenticated}
+          render={() => isAuthenticated
             ? <HomePage user={user} />
-            : <WelcomeContainer />} />
+            : <WelcomePage />} />
 
         <Route exact path="/"
-            render={() => {isAuthenticated}
+            render={() => isAuthenticated
               ? <Redirect to="/playlists" />
-              : <WelcomeContainer />} />
+              : <WelcomePage />} />
 
         <Route exact path="/signup"
-            render={() => {isAuthenticated}
+            render={() => isAuthenticated
               ? <Redirect to="/playlists" />
               : <Signup />} />
 
         <Route exact path="/login"
-            render={() => {isAuthenticated}
+            render={() => isAuthenticated
               ? <Redirect to="/playlists" />
               : <Login />} />
 
@@ -73,4 +73,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps, {})(App));
