@@ -1,3 +1,4 @@
 class UserSerializer < ApplicationSerializer
-  attributes :id
+  attributes :id, :email, :username
+  has_many :playlists
 end
