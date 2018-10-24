@@ -4,10 +4,11 @@ export default (state = [], action) => {
     //  return Object.assign({}, state);
 
     case 'GET_PLAYLISTS_SUCCESS':
-      return {...state, playlists: action.payload};
+      return action.playlists;
 
     case 'CREATE_PLAYLIST_SUCCESS':
-      return {...state, playlists: state.playlists.concat(action.payload)};
+      const playlist = Object.assign({}, action.playlist, { id: state.length + 1 } )
+      return [ ...state, playlist];
 
     //case 'FETCH_PLAYLIST':
     //  return action.playlist;
