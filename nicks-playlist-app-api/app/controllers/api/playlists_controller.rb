@@ -3,7 +3,8 @@ class Api::PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :update, :destroy]
 
   def index
-    render json: Playlist.all
+    @playlists = Playlist.all
+    render json: @playlists, include: :user
   end
 
   def create

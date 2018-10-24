@@ -1,4 +1,4 @@
-//import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -50,8 +50,8 @@ export const authenticate = (credentials) => {
     return dispatch => {
         dispatch(authRequest())
 
-        return fetch(`${API_URL}/user_token`, {
-            method: 'post',
+        return fetch(`http://localhost:3001/user_token`, {
+            method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({auth: credentials})
         })
@@ -73,7 +73,7 @@ export const authenticate = (credentials) => {
 }
 
 const getUser = (credentials) => {
-    const request = new Request(`${API_URL}/find_user`, {
+    const request = new Request(`http://localhost:3001/api/find_user`, {
       method: "POST",
       headers: new Headers({
         'Content-Type': 'application/json',

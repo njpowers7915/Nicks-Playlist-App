@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Redirect, withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import HomePage from './HomePage';
@@ -11,10 +11,10 @@ import Login from './Login'
 import '../App.css';
 
 class App extends Component {
-  render() {
 
+  render() {
     const { isAuthenticated, user } = this.props
-    /*
+
     const loggedOut = (
       <div>
         <Route exact path='/' component={WelcomePage} />
@@ -24,42 +24,24 @@ class App extends Component {
     )
     const loggedIn = (
       <div>
-        <Route exact path='/' component={WelcomePage} />
-        <Route exact path='/signup' component={Signup} />
-        <Route exact path='/login' component={Login} />
+        <Route path="/playlists" render={() => <HomePage user={user} />} />
       </div>
     )
-    */
+
     return (
-      <div className="App">
-        <div className="nav-bar">
-          <Route path="/"
-            render={() => isAuthenticated
-            ? <NavBar />
-            : null } />
+      <Router>
+        <div className="App">
+          <div className="nav-bar">
+            <Route path="/"
+              render={() => isAuthenticated
+                ? <NavBar />
+                : null } />
+          </div>
+          <div id="main-div">
+            {isAuthenticated ? loggedIn : loggedOut}
+          </div>
         </div>
-
-        <Route path="/playlists"
-          render={() => isAuthenticated
-            ? <HomePage user={user} />
-            : <WelcomePage />} />
-
-        <Route exact path="/"
-            render={() => isAuthenticated
-              ? <Redirect to="/playlists" />
-              : <WelcomePage />} />
-
-        <Route exact path="/signup"
-            render={() => isAuthenticated
-              ? <Redirect to="/playlists" />
-              : <Signup />} />
-
-        <Route exact path="/login"
-            render={() => isAuthenticated
-              ? <Redirect to="/playlists" />
-              : <Login />} />
-
-      </div>
+      </Router>
     )
   }
 }
@@ -73,4 +55,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default withRouter(connect(mapStateToProps, {})(App));
+export default connect(mapStateToProps, {})(App);
