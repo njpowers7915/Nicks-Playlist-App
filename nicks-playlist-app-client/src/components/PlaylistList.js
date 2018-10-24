@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 const PlaylistList = ({playlists}) => {
   const renderPlaylists = playlists.map(playlist =>
-    <li key={playlist.id}>
-      <Link to={`/playlists/${playlist.id}`}>{playlist.attributes.name}</Link>
-    </li>
+    <ul key={playlist.id}>
+      <li><Link to={`/playlists/${playlist.id}`}>{playlist.attributes.name}</Link></li>
+    </ul>
   )
 
   return (
