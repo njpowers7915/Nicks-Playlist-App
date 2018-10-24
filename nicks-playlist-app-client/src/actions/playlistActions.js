@@ -3,7 +3,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 // ** Action Creators **
 const setPlaylists = playlists => {
   return {
-    type: 'FETCH_PLAYLISTS',
+    type: 'GET_PLAYLISTS_SUCCESS',
     playlists
   }
 }
@@ -33,7 +33,7 @@ export const fetchPlaylists = () => {
   return dispatch => {
     return fetch(`${API_URL}/playlists`)
       .then(response => response.json())
-      .then(playlists => dispatch(setPlaylists(playlists.data)))
+      .then(playlists => dispatch(setPlaylists(playlists)))
       .catch(error => console.log(error));
   }
 }
@@ -52,6 +52,8 @@ export const createPlaylist = playlist => {
         dispatch(addPlaylist(playlist))
         dispatch(resetPlaylistForm())
       })
+      //.then(playlists =>
+      //  dispatch(setPlaylists(playlists)))
       .catch(error => console.log(error))
   }
 }

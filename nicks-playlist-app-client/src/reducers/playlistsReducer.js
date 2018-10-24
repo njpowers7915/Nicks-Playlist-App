@@ -1,13 +1,13 @@
-function playlistsReducer(state = [], action) {
+export default (state = [], action) => {
   switch(action.type) {
     //case 'LOADING_PLAYLISTS':
     //  return Object.assign({}, state);
 
-    case 'FETCH_PLAYLISTS':
-      return action.playlists;
+    case 'GET_PLAYLISTS_SUCCESS':
+      return {...state, playlists: action.payload};
 
     case 'CREATE_PLAYLIST_SUCCESS':
-      return state.concat(action.playlist);
+      return {...state, playlists: state.playlists.concat(action.payload)};
 
     //case 'FETCH_PLAYLIST':
     //  return action.playlist;
@@ -16,8 +16,6 @@ function playlistsReducer(state = [], action) {
       return state;
   }
 }
-export default playlistsReducer
-
 
 
 /*

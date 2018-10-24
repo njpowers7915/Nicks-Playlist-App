@@ -15,7 +15,9 @@ class NewPlaylistForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
+    debugger
     this.props.createPlaylist(this.props.playlistFormData)
+    this.props.history.push('/playlists')
   }
 
   render() {
