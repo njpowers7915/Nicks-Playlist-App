@@ -48,10 +48,7 @@ export const createPlaylist = playlist => {
       body: JSON.stringify({ playlist: playlist })
     })
       .then(response => response.json())
-      .then(playlist => {
-        dispatch(addPlaylist(playlist))
-        dispatch(resetPlaylistForm())
-      })
+      .then(playlist => dispatch(addPlaylist(playlist.data)))
       //.then(playlists =>
       //  dispatch(setPlaylists(playlists)))
       .catch(error => console.log(error))

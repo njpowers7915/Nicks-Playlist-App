@@ -5,6 +5,15 @@ import { createPlaylist, updatePlaylistFormData } from '../actions/playlistActio
 
 class NewPlaylistForm extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      description: ''
+    }
+    this.handleOnChange = this.handleOnChange.bind(this)
+  }
+
   handleOnChange = event => {
     const { name, value } = event.target;
     const currentPlaylistFormData = Object.assign({}, this.props.playlistFormData, {
