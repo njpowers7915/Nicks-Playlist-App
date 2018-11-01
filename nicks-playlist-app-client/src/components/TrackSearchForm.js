@@ -1,9 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {connect} from 'react-redux'
 import {fetchTracks} from '../actions/trackActions';
-/*
-class TrackSearchForm extends Component {
 
+class TrackSearchForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedTrack: ''
+    }
+  }
+
+  render() {
+
+    return (
+      <div>
+        <h2>Search for Tracks</h2>
+          {/* <datalist id="tracks">
+            {this.renderTracks}
+          </datalist> */}
+      </div>
+    )
+  }
+}
+export default TrackSearchForm
+
+/*
   componentDidMount() {
     this.props.fetchTracks()
   }
@@ -33,11 +54,11 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {fetchTracks})(TrackSearchForm);
-*/
 
 
 
-/*
+
+
   render() {
     const { match, playlists } = this.props;
 

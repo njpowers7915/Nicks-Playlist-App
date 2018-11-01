@@ -3,13 +3,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TrackList from './TrackList';
-//import TrackSearchForm from './TrackSearchForm';
+import TrackSearchForm from './TrackSearchForm';
 
 const PlaylistComponent = ({ playlist }) =>
   <div>
     <p>Name: {playlist.attributes.name}</p>
     <p>Description: {playlist.attributes.description}</p>
-    {/* <TrackSearchForm /> */}
+    <TrackSearchForm />
     <TrackList tracks={playlist.attributes.tracks}/>
   </div>
 

@@ -2,10 +2,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PlaylistList = ({playlists}) => {
+const PlaylistList = ({playlists, onLike, likes}) => {
   const renderPlaylists = playlists.map(playlist =>
     <ul key={playlist.id}>
-      <li><Link to={`/playlists/${playlist.id}`}>{playlist.attributes.name}</Link></li>
+      <li><Link to={`/playlists/${playlist.id}`}>{playlist.attributes.name}</Link> --
+      <button onClick={onLike}>Like</button> -- Likes {likes} </li>
     </ul>
   )
 

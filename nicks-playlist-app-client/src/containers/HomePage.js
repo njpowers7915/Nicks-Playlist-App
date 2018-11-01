@@ -9,9 +9,20 @@ import PlaylistComponent from '../components/PlaylistComponent'
 
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      likes: 0
+    }
+  }
 
   componentDidMount() {
     this.props.fetchPlaylists()
+  }
+
+  onLike = () => {
+    this.setState({ likes: this.state.likes += 1 })
+    //return this.state.likes
   }
 
   render() {
@@ -24,7 +35,7 @@ class HomePage extends Component {
         <br></br>
         <Switch>
           <Route exact path={match.url} render={() =>
-            <PlaylistList playlists={playlists} />} />
+            <PlaylistList playlists={playlists} onLike={this.onLike} likes={this.state.likes}/>} />
           <Route exact path={match.url + '/new'} component={NewPlaylistForm} />
           <Route exact path={match.url + '/:playlistId'} component={PlaylistComponent} />
         </Switch>
@@ -35,7 +46,8 @@ class HomePage extends Component {
 
 const mapStateToProps = state => {
   return {
-    playlists: state.playlists
+    playlists: state.playlists,
+    //likes: state.likes
   }
 }
 
