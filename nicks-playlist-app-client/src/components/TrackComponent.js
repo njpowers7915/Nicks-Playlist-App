@@ -2,9 +2,14 @@ import React from 'react';
 import AddButton from './AddButton';
 import DeleteButton from './DeleteButton';
 
-const TrackComponent = ({ track }) =>
-  <div className="track-component" id={track.id}>
-    <li>{track.name} -- {track.artist} -- <AddButton /> OR <DeleteButton /></li>
+const TrackComponent = (props) =>
+  <div className="track-component" key={props.track.id}>
+    <li>{props.track.name} -- {props.track.artist} --
+    {props.onAddClick ?
+      <AddButton /> : null }
+    {props.onRemoveClick ?
+      <DeleteButton /> : null }
+    <AddButton /> OR <DeleteButton /></li>
   </div>
 /*
 const mapStateToProps = (state, ownProps) => {

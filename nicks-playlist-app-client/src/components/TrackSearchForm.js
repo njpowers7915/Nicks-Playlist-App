@@ -16,7 +16,7 @@ class TrackSearchForm extends React.Component {
     event.preventDefault()
     const { addTrackToPlaylist, history } = this.props
     addTrackToPlaylist(this.props.selectedTrack);
-    history.push('/playlists/playlistId')
+    history.push('/playlists/:playlistId')
   }
 
   handleOnChange = event => {

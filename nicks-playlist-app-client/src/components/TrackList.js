@@ -11,7 +11,8 @@ const TrackList = ({tracks}) => {
 
   return (
     <div>
-      {renderTracks}
+      {tracks.length === 0 ?
+        ( <h2>Empty Playlist. Please add tracks</h2> ) : renderTracks }
     </div>
   )
 }

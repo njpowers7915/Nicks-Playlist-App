@@ -28,7 +28,30 @@ export const resetPlaylistForm = () => {
   }
 }
 
+export const addTrack = track => {
+  return {
+    type: 'ADD_TRACK_SUCCESS',
+    track
+  }
+}
+
 // ** Async Actions **
+export function addTrackToPlaylist(playlist, track) {
+  return dispatch => {
+    return fetch(`${API_URL}/playlists/${playlist.id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ track: track })
+    })
+      .then(response => response.json())
+      .then(track => dispatch(addTrack(track.data)))
+      .catch(error => console.log(error))
+  }
+}
+
+
 export const fetchPlaylists = () => {
   return dispatch => {
     return fetch(`${API_URL}/playlists`)
