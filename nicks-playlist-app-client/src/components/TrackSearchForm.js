@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {fetchTracks} from '../actions/trackActions';
+import {addTrackToPlaylist} from '../actions/playlistActions';
 
 class TrackSearchForm extends React.Component {
   constructor(props) {
@@ -8,6 +9,25 @@ class TrackSearchForm extends React.Component {
     this.state = {
       selectedTrack: ''
     }
+    this.handleOnChange = this.handleOnChange.bind(this)
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault()
+    const { addTrackToPlaylist, history } = this.props
+    addTrackToPlaylist(this.props.selectedTrack);
+    history.push('/playlists/playlistId')
+  }
+
+  handleOnChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
+    //const currentPlaylistFormData = Object.assign({}, this.props.playlistFormData, {
+    //  [name]: value
+    //})
+    //this.props.updatePlaylistFormData(currentPlaylistFormData)
   }
 
   render() {
@@ -22,7 +42,16 @@ class TrackSearchForm extends React.Component {
     )
   }
 }
-export default TrackSearchForm
+
+const mapStateToProps = state => {
+  return {
+    selectedTrack: state.selectedTrack
+  }
+}
+
+export default connect(mapStateToProps, { addTrackToPlaylist })(TrackSearchForm);
+
+//export default TrackSearchForm
 
 /*
   componentDidMount() {
