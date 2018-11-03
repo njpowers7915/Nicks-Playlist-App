@@ -11,6 +11,9 @@ export default (state = [], action) => {
       //return [ ...state, playlist];
       return state.concat(action.playlist);
 
+    case 'ADD_TRACK_SUCCESS':
+      const playlist = 
+
     //case 'FETCH_PLAYLIST':
     //  return action.playlist;
 
