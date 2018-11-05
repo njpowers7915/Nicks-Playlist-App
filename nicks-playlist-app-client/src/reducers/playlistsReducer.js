@@ -1,7 +1,31 @@
 export default (state = [], action) => {
+  const newTrack = action.track;
   switch(action.type) {
     //case 'LOADING_PLAYLISTS':
     //  return Object.assign({}, state);
+
+    case 'REMOVE':
+      console.log('remove', action.id)
+      return {
+        state,
+        playlist: state.playlist.filter((track) => track.id !== action.id)
+      };
+
+    case 'ADD':
+      if (state.playlist.filter(track => action.track.id === track.id).length > 0) {
+        return state
+      }
+      return {
+        state,
+        playlist: [
+          state.playlist,
+          {
+            id: state.playlist.length,
+            ...newTrack
+          }
+        ]
+      }
+      
 
     case 'GET_PLAYLISTS_SUCCESS':
       return action.playlists;
@@ -11,8 +35,8 @@ export default (state = [], action) => {
       //return [ ...state, playlist];
       return state.concat(action.playlist);
 
-    case 'ADD_TRACK_SUCCESS':
-      const playlist = 
+    //case 'ADD_TRACK_SUCCESS':
+    //  const playlist =
 
     //case 'FETCH_PLAYLIST':
     //  return action.playlist;

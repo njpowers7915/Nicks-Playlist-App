@@ -1,6 +1,21 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
 // ** Action Creators **
+
+const addToList = track => {
+  return {
+    type: 'ADD',
+    track
+  }
+}
+
+const removeFromList = id => {
+  return {
+    type: 'REMOVE',
+    id
+  }
+}
+
 const setPlaylists = playlists => {
   return {
     type: 'GET_PLAYLISTS_SUCCESS',
@@ -36,6 +51,11 @@ export const addTrack = track => {
 }
 
 // ** Async Actions **
+export function removeFromPlaylist(playlist, track) {
+  
+}
+
+
 export function addTrackToPlaylist(playlist, track) {
   return dispatch => {
     return fetch(`${API_URL}/playlists/${playlist.id}`, {

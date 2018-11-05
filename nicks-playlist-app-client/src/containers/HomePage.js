@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, Link } from 'react-router-dom';
-import { fetchPlaylists } from '../actions/playlistActions';
+import { fetchPlaylists, removeFromList } from '../actions/playlistActions';
 
 import NewPlaylistForm from '../components/NewPlaylistForm'
 import PlaylistList from '../components/PlaylistList'
@@ -21,9 +21,11 @@ class HomePage extends Component {
   }
 
   onLike = () => {
-    this.setState({ likes: this.state.likes += 1 })
+    this.setState({ likes: this.props.likes += 1 })
     //return this.state.likes
   }
+
+  onRemoveClick
 
   render() {
     const { match, playlists } = this.props;
@@ -37,7 +39,7 @@ class HomePage extends Component {
           <Route exact path={match.url} render={() =>
             <PlaylistList playlists={playlists} onLike={this.onLike} likes={this.state.likes}/>} />
           <Route exact path={match.url + '/new'} component={NewPlaylistForm} />
-          <Route exact path={match.url + '/:playlistId'} component={PlaylistComponent} />
+          <Route exact path={match.url + '/:playlistId'} component={PlaylistComponent} remove={removeFromList} />
         </Switch>
       </div>
     );

@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import TrackList from './TrackList';
 import TrackSearchForm from './TrackSearchForm';
 
-const PlaylistComponent = ({ playlist }) =>
+const PlaylistComponent = ({ playlist, removeFromList }) =>
   <div>
     <p>Name: {playlist.attributes.name}</p>
     <p>Description: {playlist.attributes.description}</p>
     <TrackSearchForm />
-    <TrackList tracks={playlist.attributes.tracks}/>
+    <TrackList tracks={playlist.attributes.tracks} onRemoveClick={removeFromList}/>
   </div>
 
 const mapStateToProps = (state, ownProps) => {
